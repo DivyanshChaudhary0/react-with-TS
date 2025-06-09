@@ -8,10 +8,10 @@ function App() {
   const [todo, setTodo] = useState<string>("")
 
   return (
-    <>
-      <h1>Todo List</h1>
+    <div className='container'>
+      <h1>Todo List with typescript</h1>
       <InputField todo={todo} setTodo={setTodo} />
-    </>
+    </div>
   )
 }
 
