@@ -1,5 +1,8 @@
 
 import type { Todos } from "../App"
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { IoMdDoneAll } from "react-icons/io";
 
 interface props {
   todos: Todos[],
@@ -12,10 +15,12 @@ const TodoList: React.FC<props> = ({todos, setTodos}) => {
       {
         todos.map((todo) => {
           return(
-            <div>
+            <div className="single_todo">
               <span>{todo.todo}</span>
-              <div>
-                
+              <div className="icons">
+                <MdEdit/>
+                <MdDelete/>
+                <IoMdDoneAll/>
               </div>
             </div>
           )
