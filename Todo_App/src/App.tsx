@@ -2,8 +2,9 @@
 import { useState } from 'react'
 import './App.css'
 import InputField from './Components/InputField'
+import TodoList from "./Components/TodoList"
 
-interface Todos {
+export interface Todos {
   id: number,
   todo: string,
   isDone: boolean
@@ -16,7 +17,9 @@ function App() {
 
   function handleSubmit(e:React.FormEvent<HTMLFormElement>){
     e.preventDefault();
-    setTodos([...todos, {id: Date.now(), todo, isDone: false}])
+    if(todo){
+      setTodos([...todos, {id: Date.now(), todo, isDone: false}])
+    }
     setTodo("");
   }
 
@@ -24,6 +27,7 @@ function App() {
     <div className='container'>
       <h1>Todo List with typescript</h1>
       <InputField todo={todo} setTodo={setTodo} handleSubmit={handleSubmit} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   )
 }
