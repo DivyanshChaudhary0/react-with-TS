@@ -18,9 +18,9 @@ const TodoList: React.FC<props> = ({todos, setTodos}) => {
             <div className="single_todo">
               <span>{todo.todo}</span>
               <div className="icons">
-                <MdEdit/>
-                <MdDelete/>
-                <IoMdDoneAll/>
+                <MdEdit cursor="pointer" />
+                <MdDelete cursor="pointer" />
+                <IoMdDoneAll cursor="pointer" />
               </div>
             </div>
           )

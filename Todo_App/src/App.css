@@ -39,3 +39,28 @@
 .input_btn{
     transition: all ease-in 0.4s;
 }
+
+.todo_container{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.single_todo{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(182, 211, 201);
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.icons{
+    display: flex;
+    gap: 10px;
+}
