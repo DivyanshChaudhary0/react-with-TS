@@ -3,12 +3,13 @@
 interface props {
     todo: string,
     setTodo: React.Dispatch<React.SetStateAction<string>>
+    handleSubmit: (e:React.FormEvent<HTMLFormElement>) => void
 }
 
-const InputField = ({todo, setTodo}: props) => {
+const InputField = ({todo, setTodo, handleSubmit}: props) => {
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={(e) => handleSubmit(e)}>
         <input 
             type="text"
             value={todo}
