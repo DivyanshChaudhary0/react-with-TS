@@ -10,17 +10,31 @@ interface props {
 }
 
 const TodoList: React.FC<props> = ({todos, setTodos}) => {
+
+  function handleEdit(id: number): void{
+
+  }
+
+  function handleDelete(id: number): void{
+
+  }
+
+  function handleDone(id: number): void{
+
+  }
+
+
   return (
     <div className="todo_container">
       {
         todos.map((todo) => {
           return(
-            <div className="single_todo">
+            <div key={todo.id} className="single_todo">
               <span>{todo.todo}</span>
               <div className="icons">
-                <MdEdit cursor="pointer" />
-                <MdDelete cursor="pointer" />
-                <IoMdDoneAll cursor="pointer" />
+                <MdEdit cursor="pointer" onClick={() => handleEdit(todo.id)} />
+                <MdDelete cursor="pointer" onClick={() => handleDelete(todo.id)} />
+                <IoMdDoneAll cursor="pointer" onClick={() => handleDone(todo.id)} />
               </div>
             </div>
           )
