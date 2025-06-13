@@ -30,7 +30,6 @@ const TodoList: React.FC<props> = ({todos, setTodos}) => {
 
     setTodos(newTodos);
   }
-
   
 
   return (
