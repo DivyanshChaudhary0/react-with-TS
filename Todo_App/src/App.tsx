@@ -27,11 +27,22 @@ function App() {
     setTodo("");
   }
 
+  function handleUpdate(){
+    let newTodos = todos.map((val) => {
+      if(val.id === id) return {...val, todo: todo}
+      return val;
+    })
+    setTodos(newTodos);
+    setTodo("");
+    setUpdate(false);
+    setId(null);
+  }
+
 
   return (
     <div className='container'>
       <h1>Todo List with typescript</h1>
-      <InputField todo={todo} setTodo={setTodo} handleSubmit={handleSubmit} update={update} />
+      <InputField todo={todo} setTodo={setTodo} handleSubmit={handleSubmit} update={update} handleUpdate={handleUpdate} />
       <TodoList todos={todos} setTodos={setTodos} setUpdate={setUpdate} setTodo={setTodo} setId={setId} />
     </div>
   )

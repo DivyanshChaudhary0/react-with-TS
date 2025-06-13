@@ -45,7 +45,7 @@ const TodoList: React.FC<props> = ({todos, setTodos, setTodo, setUpdate, setId})
             <div key={todo.id} className="single_todo">
               <span className={todo?.isDone ? "line" : ""}> {todo.todo} </span>
               <div className="icons">
-                <MdEdit cursor="pointer" onClick={() => handleEdit(todo.id)} />
+                <MdEdit cursor="pointer" onClick={() => handleEdit(todo.id, todo.todo)} />
                 <MdDelete cursor="pointer" onClick={() => handleDelete(todo.id)} />
                 <IoMdDoneAll cursor="pointer" onClick={() => handleDone(todo.id)} />
               </div>
