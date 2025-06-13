@@ -12,7 +12,7 @@ interface props {
 const TodoList: React.FC<props> = ({todos, setTodos}) => {
 
   function handleEdit(id: number): void{
-
+    
   }
 
   function handleDelete(id: number): void{
@@ -30,7 +30,7 @@ const TodoList: React.FC<props> = ({todos, setTodos}) => {
 
     setTodos(newTodos);
   }
-  
+
 
   return (
     <div className="todo_container">
