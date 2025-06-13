@@ -2,23 +2,23 @@
 
 interface props {
     todo: string,
-    setTodo: React.Dispatch<React.SetStateAction<string>>
-    handleSubmit: (e:React.FormEvent<HTMLFormElement>) => void
+    setTodo: React.Dispatch<React.SetStateAction<string>>,
+    update: boolean
+    handleSubmit: () => void
 }
 
-const InputField = ({todo, setTodo, handleSubmit}: props) => {
+const InputField = ({todo, setTodo, handleSubmit, update}: props) => {
 
   return (
-    <form className="form" onSubmit={(e) => handleSubmit(e)}>
+    <div className="form">
         <input 
             type="text"
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
             className="input_field"
         />
-
-        <button className="input_btn">Add task</button>
-    </form>
+        {update ? <button className="input_btn"> Update </button> : <button onClick={handleSubmit} className="input_btn">Add task</button>}
+    </div>
   )
 }
 

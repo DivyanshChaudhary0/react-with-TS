@@ -6,13 +6,18 @@ import { IoMdDoneAll } from "react-icons/io";
 
 interface props {
   todos: Todos[],
-  setTodos: React.Dispatch<React.SetStateAction<Todos[]>>
+  setTodos: React.Dispatch<React.SetStateAction<Todos[]>>,
+  setUpdate: React.Dispatch<React.SetStateAction<boolean>>,
+  setTodo: React.Dispatch<React.SetStateAction<string>>,
+  setId: React.Dispatch<React.SetStateAction<number | null>>
 }
 
-const TodoList: React.FC<props> = ({todos, setTodos}) => {
+const TodoList: React.FC<props> = ({todos, setTodos, setTodo, setUpdate, setId}) => {
 
-  function handleEdit(id: number): void{
-    
+  function handleEdit(id: number, val: string): void{
+    setTodo(val);
+    setId(id);
+    setUpdate(true);
   }
 
   function handleDelete(id: number): void{

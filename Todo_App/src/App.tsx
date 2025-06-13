@@ -16,20 +16,23 @@ function App() {
   const [todos, setTodos] = useState<Todos[]>([
     { id: 1, todo: "Sample Task", isDone: false }
   ]);
+  const [update, setUpdate] = useState<boolean>(false);
+  const [id, setId] = useState<null | number>(null);
 
-  function handleSubmit(e:React.FormEvent<HTMLFormElement>){
-    e.preventDefault();
+
+  function handleSubmit(){
     if(todo){
       setTodos([...todos, {id: Date.now(), todo, isDone: false}])
     }
     setTodo("");
   }
 
+
   return (
     <div className='container'>
       <h1>Todo List with typescript</h1>
-      <InputField todo={todo} setTodo={setTodo} handleSubmit={handleSubmit} />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <InputField todo={todo} setTodo={setTodo} handleSubmit={handleSubmit} update={update} />
+      <TodoList todos={todos} setTodos={setTodos} setUpdate={setUpdate} setTodo={setTodo} setId={setId} />
     </div>
   )
 }
