@@ -13,7 +13,9 @@ export interface Todos {
 function App() {
 
   const [todo, setTodo] = useState<string>("");
-  const [todos, setTodos] = useState<Todos[]>([]);
+  const [todos, setTodos] = useState<Todos[]>([
+    { id: 1, todo: "Sample Task", isDone: false }
+  ]);
 
   function handleSubmit(e:React.FormEvent<HTMLFormElement>){
     e.preventDefault();

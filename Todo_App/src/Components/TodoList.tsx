@@ -16,11 +16,19 @@ const TodoList: React.FC<props> = ({todos, setTodos}) => {
   }
 
   function handleDelete(id: number): void{
-
+    const newTodos = todos.filter((val) => val.id !== id);
+    setTodos(newTodos);
   }
 
   function handleDone(id: number): void{
+    const newTodos = todos.map((val) => {
+      if(val.id === id){
+        return {...val, isDone: !val.isDone }
+      }
+      return val;
+    })
 
+    setTodos(newTodos);
   }
 
   
@@ -31,7 +39,7 @@ const TodoList: React.FC<props> = ({todos, setTodos}) => {
         todos.map((todo) => {
           return(
             <div key={todo.id} className="single_todo">
-              <span>{todo.todo}</span>
+              <span className={todo?.isDone ? "line" : ""}> {todo.todo} </span>
               <div className="icons">
                 <MdEdit cursor="pointer" onClick={() => handleEdit(todo.id)} />
                 <MdDelete cursor="pointer" onClick={() => handleDelete(todo.id)} />
