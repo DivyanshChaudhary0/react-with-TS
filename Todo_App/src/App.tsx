@@ -20,14 +20,14 @@ function App() {
   const [id, setId] = useState<null | number>(null);
 
 
-  function handleSubmit(){
+  function handleSubmit():void {
     if(todo){
       setTodos([...todos, {id: Date.now(), todo, isDone: false}])
     }
     setTodo("");
   }
 
-  function handleUpdate(){
+  function handleUpdate():void {
     let newTodos = todos.map((val) => {
       if(val.id === id) return {...val, todo: todo}
       return val;
